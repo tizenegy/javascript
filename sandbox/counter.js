@@ -12,9 +12,9 @@ function count() {
     }
 }
 
-function change(){
-    const heading = document.querySelector('h1');
-    if (heading.innerHTML === ')Hello!'){
+change = ()=>{
+    let heading = document.querySelector('h1');
+    if (heading.innerHTML === 'Hello!'){
         heading.innerHTML = 'Goodbye!';
     } else {
         heading.innerHTML = 'Hello!';
@@ -23,3 +23,10 @@ function change(){
 document.addEventListener('DOMContentLoaded', function(){
     document.querySelector('button').onclick = change;
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('form').onsubmit = () => {
+        const name = document.querySelector('#name').value;
+        alert(`Hello, ${name}`);
+    };
+}); 
