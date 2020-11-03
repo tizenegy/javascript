@@ -1,15 +1,21 @@
-let counter = 0;
+// LocalStorage data
+// is shared between all tabs and windows from the same origin. 
+// LocalStorage data does not expire; 
+// it remains after the browser is restarted and even after OS reboot.
+
+if (!localStorage.getItem('counter')){
+    localStorage.setItem('counter', 0);
+}
 
 function hello(){
     alert('hello world');
 }
 
 function count() {
+    let counter = localStorage.getItem('counter');
     counter++;
     document.querySelector('h2').innerHTML = counter;
-    if (counter % 10 === 0){
-        alert(`Count is now ${counter}`)
-    }
+    localStorage.setItem('counter', counter);
 }
 
 change = ()=>{
@@ -30,3 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(`Hello, ${name}`);
     };
 }); 
+
+document.addEventListener('DOMContentLoaded', ()=>{
+    document.querySelector('h2').innerHTML = localStorage.getItem('counter');
+    setInterval(count, 1000);
+})
