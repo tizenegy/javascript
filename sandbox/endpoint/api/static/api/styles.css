@@ -24,14 +24,27 @@
 
 .hide  {
     float: right;
+    background-color: white;
+    border: transparent;
+}
+
+.hide:active  {
+    float: right;
+    background-color: white;
+    border: transparent;
+}
+
+.hide:focus {
+    outline: 0;
 }
 
 .post {
-    background-color: #77dd11;
+    background-color: mediumturquoise;
     padding: 20px;
     margin-bottom: 10px;
+    border-radius: 10px;
     animation-name: hide;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     animation-play-state: paused;
 }
