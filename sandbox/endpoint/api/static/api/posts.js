@@ -1,6 +1,6 @@
 
 let counter = 1;
-const quantity = 10;
+const quantity = 20;
 
 document.addEventListener('DOMContentLoaded', load);
 
