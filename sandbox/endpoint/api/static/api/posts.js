@@ -1,12 +1,18 @@
 
 let counter = 1;
 const quantity = 20;
+let loading_allowed = true;
 
 document.addEventListener('DOMContentLoaded', load);
 
 window.onscroll = () => {
-    if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        load();
+    px_to_bottom = parseInt(document.body.offsetHeight - (window.innerHeight + window.scrollY))
+    if (px_to_bottom < 50) {
+        if (loading_allowed){
+            load();
+        } 
+    } else {
+        loading_allowed = true;
     }
 };
 
@@ -21,6 +27,7 @@ document.addEventListener('click', event => {
 });
 
 async function load() {
+    loading_allowed = false;
     const start = counter;
     const end = start + quantity - 1;
     counter = end + 1;
